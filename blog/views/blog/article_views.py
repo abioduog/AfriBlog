@@ -133,3 +133,13 @@ class TagArticlesListView(ListView):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.filter(approved=True)
         return context
+
+
+class ArticleListByTagView(ListView):
+    model = Article
+    template_name = 'blog/article_list_by_tag.html'
+    context_object_name = 'articles'
+
+    def get_queryset(self):
+        tag_name = self.kwargs.get('tag_name')
+        return Article.objects.filter(tags__name__iexact=tag_name)

@@ -37,7 +37,7 @@ class Article(models.Model):
                               upload_to='article_pics')
     image_credit = models.CharField(max_length=250, null=True, blank=True)
     body = RichTextUploadingField(blank=True)
-    tags = TaggableManager(blank=True)
+    tags = TaggableManager()
     date_published = models.DateTimeField(null=True, blank=True,
                                           default=timezone.now)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -64,5 +64,4 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:article_detail', kwargs={'username': self.author.username.lower(), 'slug': self.slug})
-
 

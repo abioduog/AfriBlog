@@ -31,15 +31,12 @@ ALLOWED_HOSTS = ['127.0.0.1', ]
 # Application definition
 
 INSTALLED_APPS = [
-
-    # Default Django Apps.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # Third Party Apps.
     'django_filters',
     'rest_framework',
@@ -48,11 +45,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
-
+    'crispy_bootstrap4',
     # My apps.
     'blog.apps.BlogConfig',
-
- ]
+]
 
 INTERNAL_IPS = ['127.0.0.1', '::1']
 
@@ -151,6 +147,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Specifies the CSS Framework Crispy Forms should use.
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 
 # Account Settings
 LOGIN_URL = '/account/login/'
