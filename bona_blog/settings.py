@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import dj_database_url
+from dotenv import load_dotenv
+from django.core.management.utils import get_random_secret_key
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +25,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'h((g0d1e)y#zn%d!2wt_ow5otovu5nd#lv7v#_h_o&(m$vtbzc'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['127.0.0.1', ]
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+
+# Add Vercel URL to allowed hosts
+ALLOWED_HOSTS += ['.vercel.app']
 
 
 # Application definition
@@ -48,6 +56,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     # My apps.
     'blog.apps.BlogConfig',
+    
 ]
 
 INTERNAL_IPS = ['127.0.0.1', '::1']
@@ -89,10 +98,18 @@ WSGI_APPLICATION = 'bona_blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('SUPABASE_DB_NAME'),
+        'USER': os.getenv('SUPABASE_DB_USER'),
+        'PASSWORD': os.getenv('SUPABASE_DB_PASSWORD'),
+        'HOST': os.getenv('SUPABASE_DB_HOST'),
+        'PORT': os.getenv('SUPABASE_DB_PORT'),
     }
 }
+
+# For debugging purposes
+import sys
+print(f"Database URL: {os.environ.get('DATABASE_URL')}", file=sys.stderr)
 
 
 # Password validation
@@ -132,14 +149,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "blog/static"),
-]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Media files (User uploaded images)
 MEDIA_URL = '/media/'
@@ -180,3 +191,5 @@ CKEDITOR_CONFIGS = {
          ]),
          },
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

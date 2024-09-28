@@ -23,6 +23,9 @@ django-debug-toolbar = "*"
 package-name = "*"
 django-cors-headers = "*"
 crispy-bootstrap4 = "*"
+dj-database-url = "*"
+python-dotenv = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"
