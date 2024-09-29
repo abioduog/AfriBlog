@@ -24,7 +24,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', include('blog.urls', namespace='blog')),  # Urls for article app.
+    path('', include('blog.urls', namespace='blog')),  # Root URL configured to blog app
     path('api/v1/article/', include('blog.api.v1.routers.routers')), # Urls for API.
     path('admin/', admin.site.urls),
 
@@ -68,4 +68,3 @@ if settings.DEBUG:
 admin.site.site_header = "Bona Admin"
 admin.site.site_title = "Bona Admin Portal"
 admin.site.index_title = "Welcome to Bona Blog Portal"
-

@@ -28,9 +28,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -88,7 +88,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bona_blog.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -182,23 +181,21 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
-    'default':
-        {'toolbar': 'full',
-         'width': 'auto',
-         'extraPlugins': ','.join([
-             'codesnippet',
-             'youtube'
-         ]),
-         },
+    'default': {
+        'toolbar': 'full',
+        'width': 'auto',
+        'extraPlugins': ','.join([
+            'codesnippet',
+            'youtube'
+        ]),
+        'versionCheck': False,  # Disable version check
+    },
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Vercel-specific settings
 if 'VERCEL' in os.environ:
-    ALLOWED_HOSTS.append('.vercel.app')
-    ALLOWED_HOSTS.append('.now.sh')
-
     # Configure the database for Vercel
     DATABASES = {
         'default': dj_database_url.config(
