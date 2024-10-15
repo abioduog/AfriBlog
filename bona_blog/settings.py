@@ -14,11 +14,12 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 from django.core.management.utils import get_random_secret_key
+from pathlib import Path
 
 load_dotenv()
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Define BASE_DIR using Path
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -146,7 +147,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # This should work if BASE_DIR is a Path object
+]
 
 # Configure static file storage for Vercel
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -230,3 +233,7 @@ if 'VERCEL' in os.environ:
             'level': 'INFO',
         },
     }
+
+    admin.site.site_header = "AfriBlog Admin"
+    admin.site.site_title = "AfriBlog Admin Portal"
+    admin.site.index_title = "Welcome to AfriBlog Portal"

@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
      // Execute this function when the Preview button is clicked.
@@ -48,7 +47,7 @@ function postArticle(articleURl, articleData) {
               $('#modal-loader').hide();
 
               $('#dynamic-content').show(); // show dynamic div
-                 console.log(data)
+                 console.log("AfriBlog data")
                 // Display data from server in HTML template
                   let articlePreviewHtml = `
                        <article class="blog-post px-3 py-5 p-md-5">

@@ -15,7 +15,7 @@
     <meta name="keywords" content="Blog, Django-Blog, Django-app">
 
     <!-- Title -->
-    <title>BONA | {% block title %}{% endblock title %}</title>
+    <title>AfriBlog | {% block title %}{% endblock title %}</title>
 
 	<!-- Font and Font-awesome -->
     <link href="{% static 'blog/css/common-css/fontawesome-free/css/all.min.css' %}"
@@ -38,6 +38,29 @@
     <link rel="stylesheet" href="{% static 'dashboard/author/css/prism.css' %}">
 
     {% endblock stylesheet %}
+
+    <style>
+        .adsense-header, .adsense-footer, .adsense-in-content {
+            text-align: center;
+            margin: 20px 0;
+            min-height: 90px;
+        }
+        .adsense-sidebar {
+            text-align: center;
+            margin: 20px 0;
+            min-height: 250px;
+        }
+        .adsense-sticky {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+    </style>
 
 </head>
 <body >
@@ -138,7 +161,6 @@
 {#                                <i class="ion-social-pinterest-outline"></i>#}
 {#                                </a>#}
 {#                            </li>#}
-{#						</ul>#}
 {##}
 {#					</div><!-- footer-section -->#}
 {#				</div><!-- col-lg-4 col-md-6 -->#}
@@ -194,5 +216,32 @@
      <script src="{% static 'blog/js/blog/prism.js' %}"></script>
 
  {% endblock scripts %}
+
+    <!-- AdSense Leaderboard -->
+    <div class="adsense-leaderboard" style="text-align:center; margin: 20px 0;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_AD_CLIENT"
+             data-ad-slot="YOUR_AD_SLOT"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Sticky Ad -->
+    <div class="adsense-sticky">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-YOUR_AD_CLIENT"
+             data-ad-slot="YOUR_AD_SLOT"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
 </body>
 </html>

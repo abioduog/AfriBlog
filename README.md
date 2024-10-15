@@ -1,12 +1,12 @@
-# Bona Blog
+# AfriBlog
 An Open-Source Web Blogging platform built with Python and Django.
 
 
 
-[![GitHub license](https://img.shields.io/github/license/Williano/Bona-Blog?style=for-the-badge)](https://img.shields.io/github/license/Williano/Bona-Blog?style=for-the-badge)
-[![GitHub stars](https://img.shields.io/github/stars/Williano/Bona-Blog?style=for-the-badge)](https://img.shields.io/github/stars/Williano/Bona-Blog?style=for-the-badge)
-[![GitHub forks](https://img.shields.io/github/forks/Williano/Bona-Blog?style=for-the-badge)](https://img.shields.io/github/forks/Williano/Bona-Blog?style=for-the-badge)
-[![GitHub issues](https://img.shields.io/github/issues/Williano/Bona-Blog?style=for-the-badge)](https://img.shields.io/github/issues/Williano/Bona-Blog?style=for-the-badge)
+[![GitHub license](https://img.shields.io/github/license/Williano/AfriBlog?style=for-the-badge)](https://img.shields.io/github/license/Williano/AfriBlog?style=for-the-badge)
+[![GitHub stars](https://img.shields.io/github/stars/Williano/AfriBlog?style=for-the-badge)](https://img.shields.io/github/stars/Williano/AfriBlog?style=for-the-badge)
+[![GitHub forks](https://img.shields.io/github/forks/Williano/AfriBlog?style=for-the-badge)](https://img.shields.io/github/forks/Williano/AfriBlog?style=for-the-badge)
+[![GitHub issues](https://img.shields.io/github/issues/Williano/AfriBlog?style=for-the-badge)](https://img.shields.io/github/issues/Williano/AfriBlog?style=for-the-badge)
 
 
 ## Table of contents
@@ -27,7 +27,7 @@ An Open-Source Web Blogging platform built with Python and Django.
 An Open-Source blogging platform like [Medium](https://medium.com/) and [Real Python](https://realpython.com/) built with Python and Django. It has [features](#features) of a standard blogging platform.
 
 ## Django Package or App
-This project has been converted into a django package. You can install it from [PyPI](https://pypi.org/project/django-bona-blog/) or its [GitHub Repo](https://github.com/Williano/django-bona-blog).
+This project has been converted into a django package. You can install it from [PyPI](https://pypi.org/project/django-afriblog/) or its [GitHub Repo](https://github.com/Williano/django-afriblog).
 
 ## Screenshots
 
@@ -85,6 +85,27 @@ Article Detail Page
 * Pagination
 * Clean Code
 * 90% test coverage
+
+
+## AdSense Integration
+
+This project now includes AdSense integration for monetization. Ad placements have been added to various pages:
+
+1. Header/Leaderboard Ad: Placed at the top of the page, below the navigation menu.
+2. In-content Ad: Inserted within the article content and category listings.
+3. Footer Ad: Added at the bottom of the page.
+4. Sticky Ad: A small ad that stays fixed at the bottom of the viewport as users scroll.
+
+To use AdSense:
+
+1. Sign up for a Google AdSense account and get approved.
+2. Replace `YOUR_AD_CLIENT_ID` and `YOUR_AD_SLOT` in the ad code with your actual AdSense details.
+3. Customize ad placements as needed in the following templates:
+   - `blog/templates/blog/blog_base.html`
+   - `blog/templates/blog/category/categories_list.html`
+   - Other relevant template files where you want ads to appear
+
+Note: Ensure compliance with AdSense policies and consider user experience when placing ads.
 
 
 ## Technologies

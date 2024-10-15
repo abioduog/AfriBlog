@@ -1,0 +1,89 @@
+# Django-specific
+*.pyc
+__pycache__
+migrations/
+db.sqlite3
+
+# Static and media files
+static/
+media/
+
+# Virtual environment
+venv/
+env/
+.env
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Configuration files
+*.ini
+*.cfg
+*.conf
+
+# Cache
+.cache/
+
+# Test files
+tests/
+test_*.py
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Version control
+.git/
+.gitignore
+
+# Package manager files
+requirements.txt
+Pipfile
+Pipfile.lock
+
+# Docker files
+Dockerfile
+docker-compose.yml
+
+# JavaScript and CSS files (if not essential to your app's functionality)
+*.js
+*.css
+
+# Compiled translations
+*.mo
+
+# Backup files
+*.bak
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Specific to your project (add or remove as needed)
+ckeditor/
+blog/static/ckeditor/
+
+# Large data files or datasets
+*.csv
+*.json
+*.xml
+
+# Any other large files or directories specific to your project
+# Add them here

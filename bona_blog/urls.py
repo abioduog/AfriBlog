@@ -64,7 +64,7 @@ if settings.DEBUG:
                   ] + urlpatterns
 
 
-# Modifies default django admin titles and headers with custom app detail.
-admin.site.site_header = "Bona Admin"
-admin.site.site_title = "Bona Admin Portal"
-admin.site.index_title = "Welcome to Bona Blog Portal"
+# Modifies default Django admin titles and headers with custom app detail.
+admin.site.site_header = "AfriBlog Admin"
+admin.site.site_title = "AfriBlog Admin Portal"
+admin.site.index_title = "Welcome to AfriBlog Portal"
